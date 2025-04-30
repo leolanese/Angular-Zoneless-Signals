@@ -5,10 +5,19 @@
 ## Goal
 
 - Setup zoneless, using stand-alone, web-components and share values across them using signals
+- Use `inject-CD-blink` to control CD cycle. Then every time Angular runs change detection for AppComponent, TestComponent, or Test2Component, the DOM for that component will blink while user interact with the UI (e.g., click increment buttons, change inputs).
 
 ## Demo
 
 ![Demo](./public/assets/image.png)
+
+
+### Results
+
+- You see a blink on load because CD runs once at startup.
+- The blink effect will only trigger when the signal(s) read inside the effect change.
+- This gives you fine-grained control over which state changes cause visual feedback in each component.
+
 
 ## Setup
 
@@ -93,6 +102,16 @@ bootstrapApplication(WrapperComponent, appConfig).then(appRef => {
 ```
 
 Now, application is encapsulated within the wrapper and exported as a Web Component using @angular/element
+
+
+## Change-Detection Works with Signals in Zoneless Angular
+
+✅  Signals are reactive primitives. When you update a signal (ej. counter.set(counter() + 1)), `Angular will automatically trigger change-detection for any component that reads that signal` in its template or in a computed/effect.
+✅  `Zoneless mode means Angular does NOT monkey-patch async APIs` (like setTimeout, XHR, etc.) to auto-trigger change detection. `Instead, Angular only runs change detection when`:
+- An `input changes`
+- An `event` handler (ej. click()) runs
+- `Manually trigger` it (e.g., with ChangeDetectorRef.detectChanges())
+
 
 ---
 

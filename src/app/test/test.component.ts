@@ -1,5 +1,6 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, effect, inject, input } from '@angular/core';
 import { SharedService } from '../shared.service';
+import { injectCdBlink } from '../shared/inject-cd-blink';
 
 @Component({
   selector: 'app-test',
@@ -9,6 +10,9 @@ import { SharedService } from '../shared.service';
       <h1>{{ titleTest1() }}</h1>
       <p>Counter: {{ shared.counter() }}</p>
       <button (click)="shared.increment()">Increment</button>
+
+      <p>Test Counter: {{ shared.testCounter() }}</p>
+      <button (click)="shared.incrementTestCounter()">Increment Test Counter</button>
     </div>
   `,
   standalone: true
@@ -16,4 +20,13 @@ import { SharedService } from '../shared.service';
 export class TestComponent {
   titleTest1 = input<string>('Test Component');
   shared = inject(SharedService);
+
+  constructor() {
+    const blink = injectCdBlink();
+    effect(() => {
+      this.shared.testCounter();
+      console.log('TestComponent effect');
+      blink();
+    });
+  }
 }
