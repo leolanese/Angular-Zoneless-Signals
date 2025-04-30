@@ -15,15 +15,14 @@ import { Test2Component } from './test2/test2.component';
       <button (click)="shared.incrementTestCounter()">Increment Test Counter</button> -
       <button (click)="shared.incrementTest2Counter()">Increment Test2 Counter</button>
 
-      <app-test [title]="titleApp()"></app-test>
-      <app-test2 [title]="title2App()"></app-test2>
+      <app-test></app-test>
+      <app-test2></app-test2>
     </div>
   `,
   standalone: true
 })
 export class AppComponent {
-  titleApp = input<string>('App Component Title');
-  title2App = input<string>('App Component Title 2');
+  titleApp = input<string>('App Component');
   shared = inject(SharedService);
 
   constructor() {

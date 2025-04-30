@@ -13,5 +13,5 @@ import { AppComponent } from "./app.component";
 })
 export class WrapperComponent {
   // The title input is being passed from your WrapperComponent to AppComponent
-  titleWrapper = input<string>('Wrapper Component Title');
+  titleWrapper = input<string>('Wrapper Component');
 }
