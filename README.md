@@ -1,11 +1,11 @@
 # Angular (19+) `ZoneLess`, `stand-alone`, Agnostic `Web Components` and `Signals`
 
-> Web components are best when you need true reusability, encapsulation, and framework-agnostic UI.
+> Web components are best when we need true reusability, encapsulation, and framework-agnostic UI.
 
 ## Goal
 
-- Setup zoneless, using stand-alone, web-components and share values across them using signals
-- Use `inject-CD-blink` to visialise CD cycle. Then every time Angular runs change detection for AppComponent, TestComponent, or Test2Component, the DOM for that component will blink while user interact with the UI (e.g., click increment buttons, change inputs).
+- Setup zoneless Angular using standalone components, web components, and signals to share values across components.
+- Use injectCdBlink to visualize change detection cycles. Whenever a signal (tracked by an effect in a component) changes, Angular will run change detection for that component, and the DOM for that component will blink (not the whole App). This helps us see, in real time, which components are being checked as we interact with the UI (e.g., clicking increment buttons, changing inputs).
 
 ## Demo
 
@@ -14,9 +14,9 @@
 
 ### Results
 
-- You see a blink on load because CD runs once at startup.
+- We see a blink on load because CD runs once at startup.
 - The blink effect will only trigger when the signal(s) read inside the effect change.
-- This gives you fine-grained control over which state changes cause visual feedback in each component.
+- This gives us fine-grained control over which state changes cause visual feedback in each component.
 
 
 ## Setup
@@ -55,11 +55,11 @@ Now, instead of monitoring every change during each cycle, Angular checks only w
 
 ## Managing Changes Without Zone.js
 
-In a zoneless application, you need to be more "explicit" about change detection:
+In a zoneless application, we need to be more "explicit" about change detection:
 
 - Changes are automatically detected for input properties
 
-- `Forcing Detection`: For other changes, you'll need to manually trigger change detection using ChangeDetectorRef
+- `Forcing Detection`: For other changes, we'll need to manually trigger change detection using ChangeDetectorRef
 
 ```js
 private cdRef inject(ChangeDetectorRef) {}
@@ -72,8 +72,8 @@ triggerChangeDetection() {
 
 ### Framework Agnostic
 - Web components are a browser standard. They work in any framework (Angular, React, Vue, Svelte, etc.) or even plain HTML/JS.
-- You can build a component once and use it everywhere.
-- Angular Elements lets you export Angular components as web components, so you get the power of Angular with the portability of web components.
+- we can build a component once and use it everywhere.
+- Angular Elements lets we export Angular components as web components, so we get the power of Angular with the portability of web components.
 - Web components have some limitations (e.g., dependency injection, advanced data binding, SSR) compared to framework-native components.
 
 ### Lets transform Angular app into a Web Component:
@@ -86,7 +86,7 @@ npm install @angular/elements
 ### Create a Wrapper Component
 To create a Web Component, a wrapper component is required to encapsulate the entire application. This component will not only export Angular logic as a Web Component but is also essential for preserving router functionality, which is managed in the AppComponent.
 
-`AppComponent will maintains control over routing and application logic`, while the `WrapperComponent becomes the Web Component that you export`
+`AppComponent will maintains control over routing and application logic`, while the `WrapperComponent becomes the Web Component that we export`
 
 
 ## Transform Angular Components into Web Components
@@ -106,7 +106,7 @@ Now, application is encapsulated within the wrapper and exported as a Web Compon
 
 ## Change-Detection Works with Signals in Zoneless Angular
 
-✅  Signals are reactive primitives. When you update a signal (ej. counter.set(counter() + 1)), `Angular will automatically trigger change-detection for any component that reads that signal` in its template or in a computed/effect.
+✅  Signals are reactive primitives. When we update a signal (ej. counter.set(counter() + 1)), `Angular will automatically trigger change-detection for any component that reads that signal` in its template or in a computed/effect.
 ✅  `Zoneless mode means Angular does NOT monkey-patch async APIs` (like setTimeout, XHR, etc.) to auto-trigger change detection. `Instead, Angular only runs change detection when`:
 - An `input changes`
 - An `event` handler (ej. click()) runs
@@ -125,7 +125,7 @@ To start a local development server, run:
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Once the server is running, open wer browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever we modify any of the source files.
 
 ## Code scaffolding
 
@@ -149,7 +149,7 @@ To build the project run:
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+This will compile wer project and store the build artifacts in the `dist/` directory. By default, the production build optimizes wer application for performance and speed.
 
 ## Running unit tests
 
@@ -167,7 +167,7 @@ For end-to-end (e2e) testing, run:
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Angular CLI does not come with an end-to-end testing framework by default. we can choose one that suits wer needs.
 
 ## Additional Resources
 
