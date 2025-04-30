@@ -5,7 +5,7 @@
 ## Goal
 
 - Setup zoneless, using stand-alone, web-components and share values across them using signals
-- Use `inject-CD-blink` to control CD cycle. Then every time Angular runs change detection for AppComponent, TestComponent, or Test2Component, the DOM for that component will blink while user interact with the UI (e.g., click increment buttons, change inputs).
+- Use `inject-CD-blink` to visialise CD cycle. Then every time Angular runs change detection for AppComponent, TestComponent, or Test2Component, the DOM for that component will blink while user interact with the UI (e.g., click increment buttons, change inputs).
 
 ## Demo
 
