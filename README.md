@@ -6,6 +6,11 @@
 
 - Setup zoneless, using stand-alone, web-components and share values across them using signals
 
+## Demo
+
+![Demo](./public/assets/image.png)
+
+## Setup
 
 ```js
 // Initial project creation with zoneless flag
