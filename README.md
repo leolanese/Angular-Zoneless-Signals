@@ -30,7 +30,7 @@ We've implemented a custom utility `injectCdBlink()` to help understand how Angu
 - The `injectCdBlink()` utility intercepts this and briefly highlights the component's border.
 - **Result**: You can see exactly which component is being checked, proving that CD is no longer global but surgical.
 
-![Demo](./public/assets/image.png)
+![Demo](./public/assets/wrapper.png)
 
 ---
 
