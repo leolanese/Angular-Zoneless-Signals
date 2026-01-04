@@ -7,15 +7,16 @@ export class SharedService {
   test2Counter = signal(0);
 
   increment() {
-    this.counter.set(this.counter() + 1);
+    this.counter.update(v => v + 1);
   }
 
   incrementTestCounter() {
-    this.testCounter.set(this.testCounter() + 1);
+    this.testCounter.update(v => v + 1);
   }
 
   incrementTest2Counter() {
-    this.test2Counter.set(this.test2Counter() + 1);
+    this.test2Counter.update(v => v + 1);
   }
+
 
 } 

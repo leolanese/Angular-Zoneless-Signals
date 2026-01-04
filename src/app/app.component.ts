@@ -1,4 +1,5 @@
 import { Component, effect, inject, input } from '@angular/core';
+import { FormDemoComponent } from './form-demo/form-demo.component';
 import { SharedService } from './shared.service';
 import { injectCdBlink } from './shared/inject-cd-blink';
 import { TestComponent } from "./test/test.component";
@@ -6,7 +7,7 @@ import { Test2Component } from './test2/test2.component';
 
 @Component({
   selector: 'app-root',
-  imports: [TestComponent, Test2Component],
+  imports: [TestComponent, Test2Component, FormDemoComponent],
   template: `
     <div style="border: 3px solid rgb(10, 145, 43); padding: 16px; margin: 8px;">
       <h1>{{ titleApp() }}</h1>
@@ -15,12 +16,14 @@ import { Test2Component } from './test2/test2.component';
       <button (click)="shared.incrementTestCounter()">Increment Test Counter</button> -
       <button (click)="shared.incrementTest2Counter()">Increment Test2 Counter</button>
 
-      <app-test></app-test>
-      <app-test2></app-test2>
+      <app-form-demo />
+      <app-test />
+      <app-test2 />
     </div>
   `,
   standalone: true
 })
+
 export class AppComponent {
   titleApp = input<string>('App Component');
   shared = inject(SharedService);

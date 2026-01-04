@@ -1,4 +1,4 @@
-# Angular (19+) `ZoneLess`, `stand-alone`, Agnostic `Web Components` and `Signals`
+# Angular (21+) ZoneLess, Vitest, stand-alone and `Signals`
 
 > Web components are best when we need true reusability, encapsulation, and framework-agnostic UI.
 
