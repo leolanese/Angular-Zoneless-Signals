@@ -1,5 +1,10 @@
 # Angular 21+ Zoneless & Signals Masterclass
 
+[![Angular Version](https://img.shields.io/badge/Angular-21.0.0-DD0031?style=for-the-badge&logo=angular)](https://angular.io/)
+[![State Management](https://img.shields.io/badge/State-Signals-007ACC?style=for-the-badge&logo=typescript)](https://angular.io/guide/signals)
+[![Testing](https://img.shields.io/badge/Testing-Vitest-6E9F18?style=for-the-badge&logo=vitest)](https://vitest.dev/)
+[![Zoneless](https://img.shields.io/badge/Runtime-Zoneless-FFD700?style=for-the-badge)](https://angular.io/guide/zoneless)
+
 > **Web components are best when we need true reusability, encapsulation, and framework-agnostic UI.**
 
 This project is a cutting-edge exploration of **Angular 21**, pushing the boundaries of performance with **Zoneless Change Detection** and **Fine-grained Reactivity** using Signals.
